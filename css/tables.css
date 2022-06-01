@@ -1,0 +1,14 @@
+.table {
+  font-size: 3rem;
+  border-collapse: collapse;
+  border-collapse: separate;
+  text-align: center;
+  background-color: aqua;
+}
+
+table,
+th,
+td {
+  border: medium solid rgb(0, 0, 0);
+  border-spacing: 10px;
+}

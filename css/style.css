@@ -1,0 +1,367 @@
+/*Regla CSS consta de 2 partes
+	1)Selector
+	2)Bloque de declaraciones:{
+		atributo:valor;
+		atributo-de-mas-dos-palabras:otro-valor;
+     } */
+
+/*en css puro no es buena idea usar @import*/
+@import url(otra-hoja.css);
+
+/*esto ayuda a que la transicion no sea tan brusca cuando se mueva en el temario*/
+html{
+	scroll-behavior: smooth;
+}
+
+
+h1{
+	color: orangered;
+	background-color: black;
+}
+
+p{
+	color: midnightblue;
+}
+
+/*dar estilos con id se considera un antipatron*/
+#parrafo-dos{
+	background-color: skyblue;
+}
+
+/*dar estilos con clases nos permite reutilizar nuestro codigo Css*/
+.bg-skyblue{
+	background-color: skyblue;
+}
+
+.bg-steelblue{
+	background-color: steelblue;
+}
+
+.text-20{
+	font-size: 20px;
+
+}
+
+.text-32{
+	font-size: 32px;
+}
+
+.text-white{
+	color:white;
+}
+
+
+.hijos-directos>li{
+	background-color:thistle; 
+}
+
+
+.hijos-descendientes b{
+	background-color: thistle;
+}
+
+/*los selectores de hermanos van a aplicar a los elementos que son hermanos y que
+esten por debajo del elemento de referencia*/
+.hermanos-general ~ li{
+	background-color: thistle;
+}
+
+.hermanos-adyacentes + li{
+	background-color: thistle;
+}
+
+
+/*Selectores de atributos*/
+
+/* +selectores con atributo especifico*/
+.selectores-atributos a[href]{
+	color: orangered;
+}
+
+/*selectores con atributo especifico y valor especifico*/
+.selectores-atributos a[target="_blank"]{
+	font-weight: bold;
+}
+
+/*con el asterico selecciona todos los enlaces que 
+cumplan con el valor entre comillas*/
+.selectores-atributos a[href*="jonmircha"]{
+	font-size: 24px;
+}
+
+/*con el circunflejo ^ segun sea la palabra o termino con que se inicie
+aplicara el estilo referido*/
+.selectores-atributos a[href^="http:"]{
+	text-decoration: none;
+}
+
+/*con el signo dolar $ segun sea la palabra o termino con que se termine
+aplicara el estilo referido*/
+.selectores-atributos a[href$=".com"]{
+	background-color: black;
+}
+
+
+/*con la viñeta ~ aplica el estilo si contiene el texto en cuestion una lista
+separada por espacios*/
+.selectores-atributos a[class~="cursos"]{
+	background-color: midnightblue;
+}
+
+
+/*con el simbolo (pipe) | aplica el estilo si contiene el texto en cuestion una lista
+separada por espacios y que despues del texto en cuestion venga un - */
+.selectores-atributos a[class|="menu"]{
+	font-style: italic;
+}
+
+
+/*selector universal (*) su simbolo es el  asterisco*/
+
+*{
+	font-family: sans-serif;
+}
+
+.selector-universal *{
+	font-size: 24px;
+}
+
+
+/*
+Pseudoclases - Dan clases dependiendo del contexto, posicion o estado del elemento
+ver documentacion en MDN
+*/
+
+.form-pseudoclases *:required{
+	border-color: yellow;
+}
+
+.form-pseudoclases *:valid{
+	border-color: green;
+}
+
+.form-pseudoclases *:invalid{
+	border-color: red;
+}
+
+.form-pseudoclases *:focus{
+	background-color: skyblue
+}
+
+.form-pseudoclases *:disabled{
+	background-color: pink;
+}
+
+.menu-pseudoclases a:visited{
+	color:olive;
+}
+
+.menu-pseudoclases a:hover{
+	color:orange;
+}
+
+.p-pseudoclases:hover{
+	font-size: 20px;
+}
+
+
+#temario-css:target{
+	background-color: lightgreen;
+}
+
+.lista-pseudoclases li:first-child{
+	color: green;
+}
+
+.lista-pseudoclases li:last-child{
+	color: violet;
+}
+
+.lista-pseudoclases li:nth-child(3){
+	color: navy;
+}
+
+.lista-pseudoclases li:nth-child(4n){
+	font-size: 20px;
+}
+
+
+.lista-pseudoclases li:nth-child(3n + 1){
+	font-weight: bold;
+}
+
+
+.lista-pseudoclases li:nth-child(even){
+	background-color: yellow;
+}
+
+.lista-pseudoclases li:nth-child(odd){
+	background-color: orange;
+}
+
+.articulo-pseudoclases p:first-of-type{
+	background-color: pink;
+}
+
+.articulo-pseudoclases p:last-of-type{
+	background-color: violet;
+}
+
+.articulo-pseudoclases p:nth-of-type(3){
+	background-color: fuchsia;
+}
+
+.articulo-pseudoclases *:not(p) {
+	background-color: lightgray;
+}
+
+
+/*
+Pseudoelementos - Dan estilos a partes especificas de un elemento, se usa
+el :: para diferenciarlos de las pseudoclases (ver documentacion en MDN)	
+*/
+
+.saga-geminis::before{
+	content: "🤼‍♂️" ;
+}
+
+
+.saga-geminis::after{
+	content: "♊" ;
+}
+
+.saga-precio::before{
+	content: "$";
+	font-weight: bold;
+}
+
+
+.saga-precio::after{
+	content: "USD";
+	font-weight: bold;
+}
+
+
+.p-pseudoelementos::first-letter{
+	font-weight: bold;
+	font-size: 32px;
+}
+
+
+.p-pseudoelementos::first-line{
+	color:coral;
+}
+
+.p-pseudoelementos::selection{
+	color:greenyellow;
+	background-color: black;
+}
+
+
+.input-pseudoelementos::placeholder{
+	color: green;
+}
+
+
+/*Agrupar selectores*/
+
+.form-agrupar-selectores input[type="text"],
+.form-agrupar-selectores input[type="email"],
+.form-agrupar-selectores textarea{
+	border-color: yellow;
+	border-width: 2px;
+	border-style: dashed;
+	background-color: black;
+	font-size: 20px;
+	display:block;
+	width: 300px;
+
+}
+
+/*
+EL algortimo de CSS: Es la forma en que el navegador aplica los estilos al documento
+HTML. Es vital entender este concepto para que entiendas como se aplican y en algunas
+ocasiones se sobre escriben las reglas CSS.
+1)La Cascada
+2)La Especificidad
+3)La Herencia
+
+	1) La cascada es el mecanismo en el que el navegador aplica los estilos, y
+	toma en cuenta lo siguiente en este orden:
+	a)El origen del codigo:
+		-El user Agent(los estilos por defecto del navegador)
+		-Personalizaciones del usuario
+		-Los estilos del autor
+
+	b)La especificidad del selector
+	c)Orden de Aparicion
+
+	2) La especificidad	es el peso que tiene un selector cuando hay conflicto 
+	de estilos. Se calcula de la siguiente forma:
+		Etiquetas y pseudoelementos..............0.0.0.1
+		Clases, atributos y pseudoclases.........0.0.1.0
+		Identificadores..........................0.1.0.0
+		Estilos en linea.........................1.0.0.0
+		Important.................Rompe la especificidad
+
+	3) La Herencia, es la capacidad de un selector de obtener (heredar)	los valores
+	de sus ancestros mas cercanos, para aplicarla se usa el valor inherit, si queremos
+	evitarla podemos asignar otro valor o inicializar la propiedad en cuestion con el 
+	valor initial
+*/
+
+
+blockquote#cita-marco.cita-marco{
+	background-color: lightsteelblue;
+}
+
+blockquote{
+	background-color: burlywood;
+}
+
+#cita-marco{
+	background-color: lightgreen;
+}
+
+blockquote.cita-marco{
+	background-color: tomato;
+}
+
+.cita-marco{
+	background-color: cornflowerblue;
+}
+
+
+.cita-marco{
+	background-color: mediumaquamarine !important;
+	font-size: 32px;
+	border-style: dotted;
+	border-color: red;
+}
+
+blockquote#cita-marco{
+	background-color: lightsalmon;
+}
+
+
+
+.cita-marco cite{
+	background-color: pink;
+	background-color: inherit;
+	border-style: inherit;
+	border-color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*4:48:14;

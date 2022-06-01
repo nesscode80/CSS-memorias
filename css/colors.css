@@ -1,0 +1,99 @@
+.color-by-name{
+	background-color: coral;
+	color: rebeccapurple;
+	border: thick solid greenyellow;
+}
+
+
+/*
+Sistema Hexadecimal
+0123456789ABCDE
+
+
+RGB(Medios digitales) vs CMYK (Medios Impresos)
+*/
+
+.color-hex{
+	background-color: #ff660099;
+	color: rebeccapurple;
+	border: thick solid greenyellow;
+}
+
+
+/*Sitema RGB
+	acepta 8 bits por canal
+	Bit(0/1) 2^8 = 256
+
+	por cada canal de color tenemos valores que van del 0 al 255
+
+*/
+
+.color-rgb{
+	background-color: rgb(255,255,255);
+	background-color: rgb(255,0,0);
+	background-color: rgb(0,0,255);
+	background-color: rgba(0,0,0,.92);
+	color: rgb(255,102,0);
+	border: thick solid rgb(128,109,7);
+}
+
+
+/*Sistema HSL
+
+HSL (HueSaturationLightness)
+
+El primer valor es Hue (circulo Cromatico)
+	0°-> red
+	60°-> yellow
+	120°-> green
+	180°-> cyan
+	240°-> blue
+	300°-> magenta
+
+El segundo valor es Saturacion (intensidad del color)
+ 0%-> Escala de grises
+ 100%-> Color puro
+
+El tercer valor es lightness (luminosidad) 
+	0%-> negro
+	50%-> color puro
+	100%-> blanco
+*/
+.color-hsl{
+	background-color:hsl(0,100%,50%);
+	background-color:hsl(120,100%,50%);
+	background-color:hsl(240,100%,50%);
+	background-color:hsla(30,100%,50%,0.75);
+	color: hsl(0,0%,0%);
+	border: thick solid hsl(210,75%,65%);;
+}
+
+
+
+
+/*
+Valor transparent: color tranparente es igual a aplicar rgba(0,0,0,0)
+
+Valor currentColor: Hereda el valor por defecto o asignado de la propiedad color,
+del ancestro que tenga definida esta propiedad, busca del ancestro mas cercano 
+al mas lejano.
+*/
+
+.color-transparent-current{
+	background-color: darkmagenta;
+	background-color: currentColor;
+	background-color: transparent;
+	color:olive;
+	border: thick solid currentColor;
+}
+
+
+
+.opacity{
+	background-color: orchid;
+	color: navy;
+	border: thick solid black;
+	opacity: .5;
+	opacity: .1;
+	opacity: .75;
+}
